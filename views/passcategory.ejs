@@ -1,0 +1,32 @@
+<%- include('header') %>
+    <div class="container mt-5">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Password Category Name</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(records.length >0){
+                        records.forEach(function(row){
+                        %>
+                        <tr>
+                          <td><%= row.addpasscateg %></td>
+                         
+                          <td><a class="btn btn-primary btn-xs" href="/passcategory/edit/<%=row._id%>"><i class="fa fa-edit"></i></a>
+                            <a class="btn btn-danger btn-xs" href="/passcategory/delete/<%=row._id%>"><i class="fa fa-trash"></i></a>
+                          </td>
+                        </tr>
+                        <%  }) } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

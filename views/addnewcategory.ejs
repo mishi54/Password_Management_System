@@ -1,0 +1,45 @@
+<%- include('header') %>
+    <h1 class="text-center" style="color: rgb(34, 64, 195);"><%= title %></h1>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    Add new password Category
+                </div>
+                <div class="card-body">
+                  <form action="/addnewcategory" id="EmployeeForm" class="form-horizontal" method="post"  role="form">
+                        <div class="form-group">
+                            <%if(error!="")
+                            {%>
+                                <p style="text-align: center;color: red;">
+                                    <%=error.categname.msg %>
+                                </p>
+                            <%}%>
+
+
+                            <%if(success!='')
+                            {%>
+                                <p style="text-align: center;color: rgb(4, 84, 48);">
+                                    <%=success %>
+                                </p>
+                            <%}%>
+                            <label for="name">Category Name</label>
+                            <input type="name" class="form-control" id="categname" name="categname"  placeholder="Enter Name of Category">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" value="login">Add Category</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <small><a href="/passcategory">View all category List</a></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

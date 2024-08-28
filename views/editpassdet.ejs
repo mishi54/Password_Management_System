@@ -1,0 +1,56 @@
+<%- include('header') %>
+  <style>
+    .form-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+    }
+  </style>
+  <div class="container">
+    <div class="form-container">
+      <h2 class="text-center mb-4">Edit Password Details</h2>
+      <form action="/password-detail/edit/<%= id %>" id="passwordform" class="form-horizontal" method="post" role="form">
+        <input type="hidden" name="id" value="<%= id %>">
+        <div class="form-group">
+          <% if (error) { %>
+            <p style="text-align: center; color: red;"><%= error %></p>
+          <% } %>
+          <% if (success) { %>
+            <p style="text-align: center; color: rgb(4, 84, 48);"><%= success %></p>
+          <% } %>
+          <label for="passwordCategory">Choose Password Category</label>
+          <select class="form-control" id="passwordCategory" name="passwordCategory" required>
+            <% if (records.length > 0) { %>
+              <% records.forEach(function(row) { %>
+                <option value="<%= row.addpasscateg %>" <%= row.addpasscateg === record.addpasscateg ? 'selected' : '' %>>
+                  <%= row.addpasscateg %>
+                </option>
+              <% }) %>
+            <% } %>
+          </select>
+          
+        </div>
+        <div class="form-group">
+          <label for="passName">Project Name</label>
+          <input type="text" id="passName" name="passName" class="form-control" placeholder="Enter your project name" value="<%= record.addprojname %>" required>
+        </div>
+        <div class="form-group">
+          <label for="passDetail">Password Detail</label>
+          <textarea class="form-control" id="passDetail" name="passDetail" rows="4" placeholder="Enter password details here..." required><%= record.addpassdetail %></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      </form>
+      <div class="card-footer text-center mt-4">
+        <small><a href="/viewallpassword">View all password List</a></small>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
