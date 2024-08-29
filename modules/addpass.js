@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-mongoose.connect("mongodb+srv://mishi121006:DytUfZMXpeL2S6U0@pms.wsnlr.mongodb.net/?retryWrites=true&w=majority&appName=PMS");
+mongoose.connect("//add ur own mongo name&pass url");
 const mongoosePaginate = require('mongoose-paginate-v2');
 // var conn =mongoose.Collection;
 var addpass =new mongoose.Schema({
